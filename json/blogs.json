@@ -1,0 +1,11 @@
+{
+  "_id": {
+    "$oid": "6a26fc4d05616aa5d7e5cf3c"
+  },
+  "title": "React Tips",
+  "image": "https://i.ibb.co/test.jpg",
+  "shortDescription": "Learn React basics",
+  "longDescription": "Full React guide for beginners...",
+  "category": "Programming",
+  "email": "user@gmail.com"
+}
