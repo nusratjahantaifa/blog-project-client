@@ -1,11 +1,56 @@
-{
-  "_id": {
-    "$oid": "6a26fc4d05616aa5d7e5cf3c"
-  },
-  "title": "React Tips",
-  "image": "https://i.ibb.co/test.jpg",
-  "shortDescription": "Learn React basics",
-  "longDescription": "Full React guide for beginners...",
+
+
+[
+  {
+  "_id": "1",
+  "title": "Mastering React Hooks",
+  "image": "https://images.unsplash.com/photo-1633356122544-f134324a6cee",
+  "shortDescription": "Understand useState, useEffect, and more.",
+  "longDescription": "React Hooks allow you to use state and lifecycle features in functional components. In this guide, we explore useState, useEffect, useContext, and custom hooks with real examples.",
   "category": "Programming",
-  "email": "user@gmail.com"
-}
+  "email": "developer1@gmail.com",
+  "date": "2026-06-10"
+},
+  
+  {
+  "_id": "2",
+  "title": "Getting Started with MongoDB",
+  "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31",
+  "shortDescription": "A beginner's guide to MongoDB.",
+  "longDescription": "MongoDB is a NoSQL database that stores data in JSON-like documents. This article covers installation, CRUD operations, and how to connect MongoDB with Node.js.",
+  "category": "Database",
+  "email": "devmongo@gmail.com",
+  "date": "2026-06-09"
+},
+  
+  {
+  "_id": "3",
+  "title": "JavaScript ES6 Features You Should Know",
+  "image": "https://images.unsplash.com/photo-1627398242454-45a1465c2479",
+  "shortDescription": "Learn modern JavaScript features.",
+  "longDescription": "ES6 introduced many powerful features like arrow functions, destructuring, spread operators, promises, and modules. This blog explains them with simple examples.",
+  "category": "Programming",
+  "email": "jsdev@gmail.com",
+  "date": "2026-06-08"
+},
+  {
+    "_id": "4",
+    "title": "Building REST APIs with Express.js",
+    "image": "https://images.unsplash.com/photo-1587620962725-abab7fe55159",
+    "shortDescription": "Create backend APIs easily.",
+    "longDescription": "Express.js is a minimal Node.js framework...",
+    "category": "Backend",
+    "email": "backenddev@gmail.com",
+    "date": "2026-06-07"
+  },
+  {
+    "_id": "5",
+    "title": "Firebase Authentication Guide",
+    "image": "https://images.unsplash.com/photo-1605379399642-870262d3d051",
+    "shortDescription": "Secure your app with Firebase.",
+    "longDescription": "Firebase Authentication provides easy-to-use SDKs...",
+    "category": "Authentication",
+    "email": "firebaseuser@gmail.com",
+    "date": "2026-06-06"
+  }
+]
