@@ -42,7 +42,7 @@ const handleWishlist = async (blog) => {
       title: blog.title,
       image: blog.image,
       category: blog.category,
-      email: user.email, // ✅ REAL USER
+      email: user.email, 
     };
 
     const res = await axios.post("/wishlist", wishlistData);
@@ -58,8 +58,8 @@ const handleWishlist = async (blog) => {
   }
 };
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Recent Blogs 🚀</h1>
+    <div style={{ padding: "20px", margin:"10px" }}>
+      <h1 className="text-3xl font-bold text-center mb-6">Recent Blogs </h1>
 
      <div
   style={{
