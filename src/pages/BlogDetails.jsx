@@ -22,7 +22,7 @@ const BlogDetails = () => {
 
   // ✅ Get comments
   const { data: comments = [], refetch } = useQuery({
-    queryKey: ["comments", id, user?.email],
+    queryKey: ["comments", id],
     queryFn: async () => {
       const res = await axios.get(`/comments/${id}`);
       return res.data;

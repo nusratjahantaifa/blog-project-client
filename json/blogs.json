@@ -52,5 +52,50 @@
     "category": "Authentication",
     "email": "firebaseuser@gmail.com",
     "date": "2026-06-06"
+  },
+  
+  {
+    "title": "10 Must-Try Street Foods Around the World",
+    "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80",
+    "category": "Food & Recipes ",
+    "shortDescription": "Discover the most delicious street foods from different countries that every food lover should try at least once."
+  },
+  {
+    "title": "A Complete Guide to Exploring Paris Like a Local",
+    "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80",
+    "category": "Travel & Tourism ",
+    "shortDescription": "Explore hidden gems, local cafes, and authentic experiences in Paris beyond the typical tourist attractions."
+  },
+  {
+    "title": "Top 5 Emerging Technologies Changing the Future",
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+    "category": "Technology ",
+    "shortDescription": "Learn about cutting-edge technologies like AI, blockchain, and quantum computing shaping tomorrow’s world."
+  },
+  {
+    "title": "Simple Daily Habits for a Healthier Life",
+    "image": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80",
+    "category": "Health & Wellness ",
+    "shortDescription": "Improve your physical and mental health with easy habits you can start practicing every day."
+  },
+ 
+  {
+    "title": "Minimalist Living: How to Simplify Your Life",
+    "image": "https://images.unsplash.com/photo-1493666438817-866a91353ca9?auto=format&fit=crop&w=800&q=80",
+    "category": "Lifestyle ",
+    "shortDescription": "Learn practical tips to declutter your home and mind for a more peaceful and meaningful lifestyle."
+  },
+  {
+    "title": "Smart Investment Tips for Beginners",
+    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80",
+    "category": "Business & Finance ",
+    "shortDescription": "Understand the basics of investing and how to grow your money wisely even with a small budget."
+  },
+  {
+    "title": "Top Movies You Should Watch This Year",
+    "image": "https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=800&q=80",
+    "category": "Entertainment ",
+    "shortDescription": "A curated list of the best movies across genres that you shouldn’t miss this year."
   }
+
 ]

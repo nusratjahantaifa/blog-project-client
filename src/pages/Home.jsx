@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "../api/axios";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import HeroSlider from "../components/HeroSlider";
 import {
   Button,
   Card,
@@ -11,11 +12,11 @@ import {
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
-
 const Home = () => {
   const navigate = useNavigate();
-const { user } = useContext(AuthContext);
-  // ✅ Fetch blogs using React Query
+  const { user } = useContext(AuthContext);
+
+  // Fetch blogs using React Query
   const { data: blogs = [], isLoading } = useQuery({
     queryKey: ["blogs"],
     queryFn: async () => {
@@ -26,48 +27,52 @@ const { user } = useContext(AuthContext);
 
   if (isLoading) return <h2>Loading...</h2>;
 
-  // ✅ Show only 6 blogs
-  const recentBlogs = blogs.slice(0, 6);
+  const recentBlogs = [...blogs].reverse().slice(0, 12);
 
-  // ✅ Wishlist handler (single)
-const handleWishlist = async (blog) => {
-  if (!user) {
-    toast.error("Please login first!");
-    return;
-  }
-
-  try {
-    const wishlistData = {
-      blogId: blog._id,
-      title: blog.title,
-      image: blog.image,
-      category: blog.category,
-      email: user.email, 
-    };
-
-    const res = await axios.post("/wishlist", wishlistData);
-
-    if (res.data.message === "Already added") {
-      toast.error("Already in wishlist ❌");
-    } else {
-      toast.success("Added to wishlist ❤️");
+  //  Wishlist handler
+  const handleWishlist = async (blog) => {
+    if (!user) {
+      toast.error("Please login first! ");
+      return navigate("/login"); // Proactively push them to login
     }
-  // eslint-disable-next-line no-unused-vars
-  } catch (error) {
-    toast.error("Something went wrong!");
-  }
-};
-  return (
-    <div style={{ padding: "20px", margin:"10px" }}>
-      <h1 className="text-3xl font-bold text-center mb-6">Recent Blogs </h1>
 
-     <div
-  style={{
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-    gap: "20px",
-  }}
->
+    try {
+      const wishlistData = {
+        blogId: blog._id,
+        title: blog.title,
+        image: blog.image,
+        category: blog.category,
+        email: user.email, 
+      };
+
+      const res = await axios.post("/wishlist", wishlistData);
+
+      if (res.data.message === "Already added") {
+        toast.error("Already in wishlist ❌");
+      } else {
+        toast.success("Added to wishlist ❤️");
+      }
+    // eslint-disable-next-line no-unused-vars
+    } catch (error) {
+      toast.error("Something went wrong!");
+    }
+  };
+
+  return (
+      
+    <div style={{ padding: "20px", margin: "10px" }}>
+    <HeroSlider/>
+     
+
+      <h1 className="text-3xl font-bold text-center mb-6">Recent Blogs</h1>
+
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+          gap: "20px",
+        }}
+      >
         {recentBlogs.map((blog) => (
           <Card key={blog._id}>
             <img
@@ -82,9 +87,9 @@ const handleWishlist = async (blog) => {
 
             <CardContent>
               <Typography variant="h6">{blog.title}</Typography>
-             <Typography>
-  {blog.shortDescription?.slice(0, 80)}...
-</Typography>
+              <Typography>
+                {blog.shortDescription?.slice(0, 80)}...
+              </Typography>
               <Typography color="primary">{blog.category}</Typography>
 
               {/* ✅ Details Button */}
@@ -96,9 +101,8 @@ const handleWishlist = async (blog) => {
                 Details
               </Button>
 
-              {/* ✅ Wishlist Button */}
+              {/* ✅ Wishlist Button (Removed disabled attribute so toast works) */}
               <Button
-               disabled={!user}
                 variant="outlined"
                 style={{ marginTop: "10px", marginLeft: "10px" }}
                 onClick={() => handleWishlist(blog)}
