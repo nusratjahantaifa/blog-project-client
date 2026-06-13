@@ -13,6 +13,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Newsletter from "../components/Newsletter";
 
+
 const Home = () => {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
@@ -112,9 +113,12 @@ const Home = () => {
               </Button>
             </CardContent>
           </Card>
+          
         ))}
+    
       </div>
     </div>
+    
   );
 };
 
