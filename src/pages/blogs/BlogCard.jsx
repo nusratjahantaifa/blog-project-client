@@ -46,7 +46,7 @@ const BlogCard = ({ blog, handleWishlist }) => {
               : "bg-gray-400 cursor-not-allowed"
           }`}
         >
-          Wishlist ❤️
+          Wishlist 
         </button>
       </div>
     </div>

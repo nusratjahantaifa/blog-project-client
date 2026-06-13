@@ -11,7 +11,7 @@ const BlogDetails = () => {
 
   const [comment, setComment] = useState("");
 
-  // ✅ Get single blog
+  // Get single blog
   const { data: blog = {}, isLoading } = useQuery({
     queryKey: ["blog", id],
     queryFn: async () => {
@@ -20,7 +20,7 @@ const BlogDetails = () => {
     },
   });
 
-  // ✅ Get comments
+  // Get comments
   const { data: comments = [], refetch } = useQuery({
     queryKey: ["comments", id],
     queryFn: async () => {
@@ -31,7 +31,7 @@ const BlogDetails = () => {
 
   if (isLoading) return <h2>Loading...</h2>;
 
-  // ✅ Comment submit
+  //Comment submit
   const handleComment = async () => {
     if (!comment) return toast.error("Write something!");
 
@@ -53,33 +53,33 @@ const BlogDetails = () => {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div style={{ padding: "20px",marginBottom: "10px" }}>
       <h1>{blog.title}</h1>
       <img src={blog.image} style={{ width: "100%" }} />
       <p>{blog.shortDescription}</p>
       <p>{blog.longDescription}</p>
 
-      {/* ✅ Comment Section */}
-      <h3>Comments</h3>
+      {/* Comment Section */}
+    
 
-      {/* ❗ Condition: user cannot comment own blog */}
+      {/* Condition: user cannot comment own blog */}
       {blog.email === user?.email ? (
         <p style={{ color: "red" }}>
-          You cannot comment on your own blog
+          You cannot comment on your own blog ⚠️
         </p>
       ) : (
-        <div>
+        <div className="my-6 ">
           <textarea
             value={comment}
             onChange={(e) => setComment(e.target.value)}
             placeholder="Write your comment..."
           />
           <br />
-          <button onClick={handleComment}>Submit</button>
+          <button onClick={handleComment} className="btn btn-secondary">Submit</button>
         </div>
       )}
 
-      {/* ✅ Show comments */}
+      {/* Show comments */}
       <div>
         {comments.map((c) => (
           <div key={c._id} style={{ marginTop: "10px" }}>

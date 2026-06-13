@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import Newsletter from "../components/Newsletter";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -62,7 +63,7 @@ const Home = () => {
       
     <div style={{ padding: "20px", margin: "10px" }}>
     <HeroSlider/>
-     
+     <Newsletter></Newsletter>
 
       <h1 className="text-3xl font-bold text-center mb-6">Recent Blogs</h1>
 
@@ -92,7 +93,7 @@ const Home = () => {
               </Typography>
               <Typography color="primary">{blog.category}</Typography>
 
-              {/* ✅ Details Button */}
+              {/* Details Button */}
               <Button
                 variant="contained"
                 style={{ marginTop: "10px" }}
@@ -101,7 +102,7 @@ const Home = () => {
                 Details
               </Button>
 
-              {/* ✅ Wishlist Button (Removed disabled attribute so toast works) */}
+              {/*Wishlist Button (Removed disabled attribute so toast works) */}
               <Button
                 variant="outlined"
                 style={{ marginTop: "10px", marginLeft: "10px" }}

@@ -142,6 +142,7 @@ nodemon index.js
 
 ## ⭐ Final Words
 
-This project demonstrates full-stack development skills including authentication, database management, API integration, and responsive UI design.
+This project demonstrates full-stack development skills including authentication,
+ database management, API integration, and responsive UI design.
 
 ✨ Thank you for visiting!
