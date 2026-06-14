@@ -86,13 +86,13 @@ BlogSphere is a full-stack blog platform where users can create, read, update, a
 
 ### Client (.env)
 
-VITE_API_URL=http://localhost:5000
+VITE_API_URL=https://mern-firebase-blog-project.onrender.com
 
 ### Server (.env)
 
-MONGO_URI=
-JWT_SECRET=
-
+MONGO_URI=mongodb+srv://blog-user:ar2wwgk9RrjMgmu9@cluster0.gjbzxra.mongodb.net/?appName=Cluster0
+JWT_SECRET=2953091a2cd117445352b15bf5e12644553be8a042821cf53f45cc637b9b2df6c
+CLIENT_URL=https://mern-firebase-project.netlify.app/
 ---
 
 ## 📦 Installation
@@ -100,8 +100,8 @@ JWT_SECRET=
 ### Clone the repositories
 
 ```bash
-git clone https://github.com/your-username/blog-project-client.git
-git clone https://github.com/your-username/blog-project-server.git
+git clone https://github.com/nusratjahantaifa/blog-project-client.git
+git clone https://github.com/nusratjahantaifa/blog-project-server.git
 ```
 
 ### Install dependencies
