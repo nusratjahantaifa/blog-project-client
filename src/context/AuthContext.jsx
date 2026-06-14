@@ -1,6 +1,5 @@
 import { createContext, useEffect, useState } from "react";
 import {
-  getAuth,
   onAuthStateChanged,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -8,64 +7,66 @@ import {
   GoogleAuthProvider,
   signInWithPopup
 } from "firebase/auth";
-import app from "../firebase/firebase.config";
+import { auth } from "../firebase/firebase.config";
+import axios from "../api/axios"; // ✅ Safe production routing via Axios base configuration
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const AuthContext = createContext();
 
-const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // Email/Password Registration
   const registerUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
+  // Email/Password Sign-In
   const loginUser = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
+  // Google Authentication Sign-In
   const googleLogin = () => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
+  // User Sign-Out Handler
   const logoutUser = () => {
     setLoading(true);
     return signOut(auth);
   };
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
+  // Tracking authentication states continuously
+ useEffect(() => {
+  const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+    setUser(currentUser);
 
-      // ✅ JWT
-      if (currentUser?.email) {
-        fetch("http://localhost:5000/jwt", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify({ email: currentUser.email }),
-        })
-          .then(res => res.json())
-          .then(data => {
-            localStorage.setItem("token", data.token);
-          });
-      } else {
-        localStorage.removeItem("token");
+    if (currentUser?.email) {
+      try {
+        const res = await axios.post("/jwt", {
+          email: currentUser.email,
+        });
+
+        localStorage.setItem("token", res.data.token);
+      } catch (error) {
+        console.error("JWT token generation failed:", error);
       }
+    } else {
+      localStorage.removeItem("token");
+    }
 
-      setLoading(false);
-    });
+    setLoading(false);
+  });
 
-    return () => unsubscribe();
-  }, []);
+  return () => unsubscribe();
+}, []);
 
   const authInfo = {
     user,
