@@ -6,10 +6,10 @@ import axios from "../api/axios";
 
 const Wishlist = () => {
   const { user } = useContext(AuthContext);
-
+const token = localStorage.getItem("token");
   const { data: wishlist = [] } = useQuery({
     queryKey: ["wishlist", user?.email],
-    enabled: !!user, // important
+    enabled: !!user?.email && !!token,
     queryFn: async () => {
       const res = await axios.get(`/wishlist/${user.email}`);
       return res.data;
