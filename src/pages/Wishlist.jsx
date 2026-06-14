@@ -17,7 +17,7 @@ const Wishlist = () => {
   });
 
   return (
-    <div>
+    <div className="bg-white dark:bg-gray-800 text-black dark:text-white rounded-xl shadow-md p-4">
       <h1>My Wishlist</h1>
 
       {wishlist.map((item) => (

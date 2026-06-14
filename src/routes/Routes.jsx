@@ -13,6 +13,7 @@ import NotFound from "../pages/NotFound";
 
 
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -56,6 +57,7 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register />,
       },
+    
     ],
   },
 ]);

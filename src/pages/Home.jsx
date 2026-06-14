@@ -13,8 +13,8 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Newsletter from "../components/Newsletter";
 
-
 const Home = () => {
+  
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
 
@@ -29,13 +29,13 @@ const Home = () => {
 
   if (isLoading) return <h2>Loading...</h2>;
 
-  const recentBlogs = [...blogs].reverse().slice(0, 12);
+  const recentBlogs = [...blogs].reverse().slice(0, 8);
 
   //  Wishlist handler
   const handleWishlist = async (blog) => {
     if (!user) {
       toast.error("Please login first! ");
-      return navigate("/login"); // Proactively push them to login
+      return navigate("/login"); 
     }
 
     try {
@@ -61,8 +61,10 @@ const Home = () => {
   };
 
   return (
+    
       
-    <div style={{ padding: "20px", margin: "10px" }}>
+    <div style={{ padding: "20px", margin: "10px" }} className=
+   "bg-white dark:bg-gray-900 text-black dark:text-white" >
     <HeroSlider/>
      <Newsletter></Newsletter>
 
@@ -113,10 +115,11 @@ const Home = () => {
               </Button>
             </CardContent>
           </Card>
-          
-        ))}
     
+        ))}
+  
       </div>
+     
     </div>
     
   );

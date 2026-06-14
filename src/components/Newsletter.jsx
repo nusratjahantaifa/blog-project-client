@@ -6,7 +6,7 @@ const Newsletter = () => {
     toast.success("Thank you for subscribing!");
   };
     return (
-        <div className="text-center mt-10">
+        <div className="text-center mt-10 mb-10">
       <h2 className="text-2xl font-bold">Subscribe</h2>
 
       <form onSubmit={handleSubscribe} className="mt-4">
@@ -16,7 +16,8 @@ const Newsletter = () => {
           className="input input-bordered"
           required
         />
-        <button className="btn ml-2">Submit</button>
+        {/* <button className="btn ml-2">Submit</button> */}
+        <button className="btn btn-outline btn ml-2 btn-success">Submit</button>
       </form>
     </div>
     );
